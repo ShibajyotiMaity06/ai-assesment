@@ -1,7 +1,7 @@
 import { Question, UnmatchedAnswer, ExamDocument } from './types';
 
 export const INITIAL_EXAM_DOCUMENT: ExamDocument = {
-  questionPaperName: 'Class_10_maths_unit_test.pdf',
+  questionPaperName: 'Class_10_biology_unit_test.pdf',
   questionPaperSize: '2MB',
   questionPaperPages: 2,
   answerSheetName: 'student_1_answer_sheet.pdf',

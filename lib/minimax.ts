@@ -4,8 +4,8 @@ import { MOCK_QUESTIONS, MOCK_UNMATCHED_ANSWERS } from './sampleData';
 export async function analyzeExamDocuments(
   questionPaperImages: string[],
   answerSheetImages: string[],
-  questionPaperName: string = 'Question_Paper.pdf',
-  answerSheetName: string = 'Answer_Sheet.pdf'
+  questionPaperName: string = 'Class_10_biology_unit_test.pdf',
+  answerSheetName: string = 'student_1_answer_sheet.pdf'
 ): Promise<{
   questions: Question[];
   unmatchedAnswers: UnmatchedAnswer[];
@@ -108,7 +108,7 @@ Given a Question Paper and Answer Sheet:
                   feedback = mockRef?.aiFeedback || `Evaluation completed for Question ${qNum}. Scored ${scoredM}/${maxM} marks.`;
                 }
 
-                // Page Index Determination: Use mockRef page mapping when not custom upload so text always aligns with page!
+                // Page Index Determination
                 let pageIdx = isCustomUpload
                   ? (typeof q.pageIndex === 'number' ? q.pageIndex : Math.min(Math.floor(idx / 4), numAnswerSheetPages - 1))
                   : (mockRef?.answerPages?.[0] ?? Math.min(Math.floor(idx / 4), 3));
@@ -144,7 +144,6 @@ Given a Question Paper and Answer Sheet:
                   }
                 }
 
-                // Ensure boxes have clean label format (Q10 instead of "Answer 10")
                 boxes = boxes.map((b: any) => ({
                   ...b,
                   label: cleanLabel,
